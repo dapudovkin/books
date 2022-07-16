@@ -18,19 +18,22 @@ public class InputCounter {
 
     public void readAndCount() {
         try {
-            String line;
-            while ((line = buffer.readLine()) != null) {
-                count(line);
-            }
+            tryToReadAndCount();
         } catch (IOException e) {
             printExceptionMessage(e);
+        } finally {
+            closeBuffer();
         }
     }
 
-    private void count(String line) {
-        countLine();
-        countChar(line);
-        countWord(line);
+    private void tryToReadAndCount() throws IOException {
+        String line;
+        while ((line = buffer.readLine()) != null) {
+            countLine();
+            countChar(line);
+            countWord(line);
+        }
+
     }
 
     private void countLine() {
@@ -48,5 +51,13 @@ public class InputCounter {
 
     private void printExceptionMessage(Exception e) {
         System.err.println("Error:" + e.getMessage());
+    }
+
+    private void closeBuffer() {
+        try {
+            buffer.close();
+        } catch (IOException e) {
+            printExceptionMessage(e);
+        }
     }
 }

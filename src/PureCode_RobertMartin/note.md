@@ -1,13 +1,15 @@
 # Pure code by Robert Martin
 
-## Chapter 1: Names
+## Chapter 2: Names
+
+### Variables
 
 - meaningful
 - easy pronounce
 - easy search: var length -> scope
 - no suffix & prefix
 
- ## Chapter 2: Methods
+ ### Methods
 
 - verbs & words
 - constructors overloading
@@ -36,7 +38,8 @@
 - isolate try/catch -> separate f()
   - error processing as one operation
     
-## Chapter 3: Comments
+## Chapter 4: Comments
+
 - always fact of losing
 - it's better to refactor code
 - law comments -> a bit of info & links
@@ -45,3 +48,23 @@
 - Javadoc in public API
 - not all f()'s have to have Javadoc
 - use f() or var instead of comment, where it's possible
+
+## Chapter 6: Objects & Data Structures (DS)
+
+- Unreasonable adding setters & getters - the worst option
+- Procedure code (tha use DS)
+  - easy function adding -> no changing in DS
+  - hard data structure adding -> have to change all functions
+- OOP code
+  - easy class adding -> no changing in functions
+  - hard function adding -> have to change all classes
+- DTO (Data Transfer Object)
+  - class with public vars (or bean-access)
+  - without functions
+  - useful when work with DB, read msg from socket
+- Active Records (type of DTO)
+  - class with public vars (or bean-access)
+  - navigation methods: save, find
+
+## Chapter 7: Error Processing
+
